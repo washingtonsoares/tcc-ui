@@ -1,0 +1,44 @@
+{
+  "dimensions": 2,
+  "attributes": [],
+  "labels": [
+    "S1-T2-C.00000.Q1.jpeg",
+    "S1-T2-C.00001.Q1.jpeg",
+    "S1-T2-C.00002.Q1.jpeg"
+  ],
+  "rows": [
+    {
+      "values": [
+        1.7326761,
+        0.13973324
+      ],
+      "norm": 0,
+      "updateNorm": true,
+      "size": 2,
+      "id": -15912915,
+      "klass": 1
+    },
+    {
+      "values": [
+        1.00026,
+        0.5755437
+      ],
+      "norm": 0,
+      "updateNorm": true,
+      "size": 2,
+      "id": -1823367378,
+      "klass": 1
+    },
+    {
+      "values": [
+        1.1719488,
+        0.47537193
+      ],
+      "norm": 0,
+      "updateNorm": true,
+      "size": 2,
+      "id": 664145455,
+      "klass": 1
+    }
+  ]
+}
