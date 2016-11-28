@@ -4,9 +4,9 @@ var margin = {
         bottom: 50,
         left: 50
     },
-    outerWidth = 1050,
+    outerWidth = 900,
     outerHeight = 500,
-    width = outerWidth - margin.right,
+    width = outerWidth,
     height = outerHeight - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
@@ -59,7 +59,7 @@ d3.json('../data/dados.json', function(error, data) {
     var zoomBeh = d3.behavior.zoom()
         .x(x)
         .y(y)
-        .scaleExtent([0, 500])
+        .scaleExtent([1, 5])
         .on("zoom", zoom);
 
     var svg = d3.select("#scatter")
@@ -123,6 +123,24 @@ d3.json('../data/dados.json', function(error, data) {
 
     function transform(d) {
         return "translate(" + x(d.values[0]) + "," + y(d.values[1]) + ")";
+    }
+
+    d3.select("#reset_zoom").on("click", reset);
+
+    function zoomed() {
+      svg.select(".x.axis").call(xAxis);
+      svg.select(".y.axis").call(yAxis);
+    }
+
+    function reset() {
+        d3.transition().duration(750).tween("zoom", function() {
+            var ix = d3.interpolate(x.domain(), [xMin, xMax]),
+                iy = d3.interpolate(y.domain(), [yMin, yMax]);
+            return function(t) {
+                zoomBeh.x(x.domain(ix(t))).y(y.domain(iy(t)));
+                zoom();
+            };
+        });
     }
 
 });
