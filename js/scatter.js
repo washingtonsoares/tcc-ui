@@ -15,7 +15,7 @@ var x = d3.scale.linear()
 var y = d3.scale.linear()
     .range([height, 0]).nice();
 
-var colorCat = "id";
+var colorCat = "klass";
 
 d3.json('../data/dados.json', function(error, data) {
     data = data.rows;
